@@ -14,7 +14,7 @@ public class hideCanvas : MonoBehaviour
         m_button.onClick.AddListener(delegate { TaskOnClick(); });
     }
 
-    private void TaskOnClick()
+    public void TaskOnClick()
     {
         if (canvas.enabled == true)
         {

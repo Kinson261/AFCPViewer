@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Text;
 using System.IO;
+using System.Threading;
 
 
 public class saveFile : MonoBehaviour
 {
     public GameObject[] model3d;
     public GameObject child;
-    
+    public Canvas canvas;
+    //public controlSavingCanvas ctrl;
 
     public getDateAndTime m_date;
     //private string pathUrl = Application.streamingAssetsPath + "/SavedModels/";
@@ -19,6 +22,7 @@ public class saveFile : MonoBehaviour
 
     public void getModel3d()
     {
+        
         model3d = GameObject.FindGameObjectsWithTag("model3d");
         foreach (GameObject model3d in model3d)
         {
@@ -132,6 +136,16 @@ public class saveFile : MonoBehaviour
             streamWriter.Close();
         }
        // AssetDatabase.Refresh();
+    }
+    
+
+    public void Save(){
+
+        canvas.enabled = true;
+        
+        getModel3d();
+        
+        canvas.enabled = false;
     }
     
 }

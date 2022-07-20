@@ -14,6 +14,8 @@ public class cineCamControl : MonoBehaviour
     public GameObject target;
     public Vector3 mousePos;
     public Vector3 offset;
+    public Vector3 pos;
+    public Quaternion rot;
 
     // zoom
     private float ZoomMinBound = 0.1f;
@@ -32,12 +34,6 @@ public class cineCamControl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // do something
-    }
-
     public void FixedUpdate(){
         
 
@@ -48,6 +44,7 @@ public class cineCamControl : MonoBehaviour
                 target.transform.RotateAround(target.transform.position, Vector3.right, -Input.GetAxisRaw("Mouse Y") * rotationSpeed * Time.deltaTime);
                 //target.transform.Rotate(Vector3.up * -Input.GetAxisRaw("Mouse X") * rotationSpeed * Time.deltaTime);
                 //target.transform.Rotate(Vector3.right * Input.GetAxisRaw("Mouse Y") * rotationSpeed * Time.deltaTime);
+                updateTransform();
             }
 
         }
@@ -90,6 +87,12 @@ public class cineCamControl : MonoBehaviour
         }    
     }
 
+    public void updateTransform(){
+        // update target position
+        pos = target.transform.position;
+        rot = target.transform.rotation;
+    }
+
 
 
     public void findObject(){
@@ -99,6 +102,11 @@ public class cineCamControl : MonoBehaviour
                                                 target.transform.position.y + offset.y,
                                                 target.transform.position.z + offset.z);
         camera.transform.LookAt(target.transform);
+    }
+
+    public void initCamZoom(){
+        camera.orthographic = true;
+        camera.orthographicSize = 300;
     }
 
     public void Zoom(float deltaMagnitudeDiff, float speed){

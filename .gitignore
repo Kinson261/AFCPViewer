@@ -72,4 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Saving results
-/[Aa]ssets/[Ss]treamingAssets/Parameters/*
+/[Aa]ssets/[Ss]treamingAssets/*

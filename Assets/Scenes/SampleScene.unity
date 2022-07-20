@@ -1528,7 +1528,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 217776675}
         m_TargetAssemblyTypeName: saveParameters1, Assembly-CSharp
         m_MethodName: onClick
@@ -1540,7 +1540,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 1718760080}
         m_TargetAssemblyTypeName: saveParameters2, Assembly-CSharp
         m_MethodName: onClick
@@ -1552,7 +1552,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 881814304}
         m_TargetAssemblyTypeName: saveParameters3, Assembly-CSharp
         m_MethodName: onClick
@@ -1564,7 +1564,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &107562778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2388,7 @@ GameObject:
   - component: {fileID: 217776675}
   m_Layer: 5
   m_Name: CanvasParametersWorkingWheel
-  m_TagString: Untagged
+  m_TagString: CanvasParameters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2517,6 +2517,7 @@ MonoBehaviour:
   nr: 0
   ckp: 0
   m_date: {fileID: 844354481}
+  canvas: {fileID: 0}
 --- !u!1 &229272473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3236,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 268899577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1718760080}
+        m_TargetAssemblyTypeName: saveParameters2, Assembly-CSharp
+        m_MethodName: checkActiveCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &268899577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5878,9 +5891,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2030399560}
-        m_TargetAssemblyTypeName: objSwitch, Assembly-CSharp
-        m_MethodName: switchView
+      - m_Target: {fileID: 2030399558}
+        m_TargetAssemblyTypeName: openFile, Assembly-CSharp
+        m_MethodName: switchView2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5889,7 +5902,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: cineCamControl, Assembly-CSharp
+        m_MethodName: findObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &606831704
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,7 +6306,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 616317609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881814304}
+        m_TargetAssemblyTypeName: saveParameters3, Assembly-CSharp
+        m_MethodName: checkActiveCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &616317609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7435,6 +7472,9 @@ GameObject:
   - component: {fileID: 713832887}
   - component: {fileID: 713832889}
   - component: {fileID: 713832890}
+  - component: {fileID: 713832893}
+  - component: {fileID: 713832892}
+  - component: {fileID: 713832891}
   m_Layer: 0
   m_Name: CanvasManager
   m_TagString: Untagged
@@ -7512,6 +7552,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_button: {fileID: 713228756}
   canvas: {fileID: 1373712780}
+--- !u!114 &713832891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713832885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377f8829b4d77c04086240e404358284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 662314742}
+  canvas: {fileID: 881814302}
+--- !u!114 &713832892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713832885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377f8829b4d77c04086240e404358284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 452596875}
+  canvas: {fileID: 1718760078}
+--- !u!114 &713832893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713832885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377f8829b4d77c04086240e404358284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 1916640234}
+  canvas: {fileID: 217776672}
 --- !u!1 &728867266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8860,7 +8942,7 @@ GameObject:
   - component: {fileID: 881814304}
   m_Layer: 5
   m_Name: CanvasParametersSpatialBlade
-  m_TagString: Untagged
+  m_TagString: CanvasParameters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8977,6 +9059,7 @@ MonoBehaviour:
   R: 0
   B: 0
   m_date: {fileID: 844354481}
+  canvas: {fileID: 0}
 --- !u!1 &911066074
 GameObject:
   m_ObjectHideFlags: 0
@@ -9778,13 +9861,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 963194227}
-  linearSpeed: 100
-  rotationSpeed: 100
+  linearSpeed: 150
+  rotationSpeed: 300
   zoomSpeed: 20
   scroll: 0
   target: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: -600}
+  pos: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  stream: {fileID: 2030399558}
 --- !u!1 &988924544
 GameObject:
   m_ObjectHideFlags: 0
@@ -13878,6 +13964,7 @@ GameObject:
   - component: {fileID: 1360608241}
   - component: {fileID: 1360608243}
   - component: {fileID: 1360608242}
+  - component: {fileID: 1360608244}
   m_Layer: 5
   m_Name: RawImageObjSwitch (1)
   m_TagString: Untagged
@@ -13939,6 +14026,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360608240}
   m_CullTransparentMesh: 1
+--- !u!114 &1360608244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360608240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1360608242}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030399558}
+        m_TargetAssemblyTypeName: openFile, Assembly-CSharp
+        m_MethodName: switchView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: cineCamControl, Assembly-CSharp
+        m_MethodName: findObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1369856457
 GameObject:
   m_ObjectHideFlags: 0
@@ -17049,7 +17204,7 @@ GameObject:
   - component: {fileID: 1718760080}
   m_Layer: 5
   m_Name: CanvasParametersCylindrical blade
-  m_TagString: Untagged
+  m_TagString: CanvasParameters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17170,6 +17325,7 @@ MonoBehaviour:
   B1: 0
   B2: 0
   m_date: {fileID: 844354481}
+  canvas: {fileID: 0}
 --- !u!1 &1764599344
 GameObject:
   m_ObjectHideFlags: 0
@@ -17318,7 +17474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1785630189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 217776675}
+        m_TargetAssemblyTypeName: saveParameters1, Assembly-CSharp
+        m_MethodName: checkActiveCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1785630189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18148,19 +18316,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1916640235}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 217776675}
-        m_TargetAssemblyTypeName: saveParameters1, Assembly-CSharp
-        m_MethodName: onClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &1916640235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19578,7 +19734,6 @@ GameObject:
   - component: {fileID: 2030399555}
   - component: {fileID: 2030399554}
   - component: {fileID: 2030399556}
-  - component: {fileID: 2030399560}
   m_Layer: 0
   m_Name: FileManager
   m_TagString: Untagged
@@ -19636,9 +19791,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3b9c14268122a46a125cb7e9cdc792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model3d: {fileID: 0}
+  model3d: []
   child: {fileID: 0}
-  m_date: {fileID: 0}
+  m_date: {fileID: 844354481}
 --- !u!114 &2030399558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19651,7 +19806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112d7bf8672c2e04b864e5d135869d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadedObject: {fileID: 0}
   texture: {fileID: 2800000, guid: ed0c2c8a99e92e14ba740ac8aa428288, type: 3}
+  cinecam: {fileID: 963194229}
 --- !u!4 &2030399559
 Transform:
   m_ObjectHideFlags: 0
@@ -19666,19 +19823,6 @@ Transform:
   m_Father: {fileID: 177401467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2030399560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030399553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67fac884f2e573b41a3b4b9070667159, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: ed0c2c8a99e92e14ba740ac8aa428288, type: 3}
 --- !u!1 &2060983194
 GameObject:
   m_ObjectHideFlags: 0

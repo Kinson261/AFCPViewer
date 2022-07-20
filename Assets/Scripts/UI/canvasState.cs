@@ -18,10 +18,4 @@ public class canvasState : MonoBehaviour
             canvas.enabled = false;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

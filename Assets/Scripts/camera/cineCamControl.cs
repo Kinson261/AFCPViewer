@@ -19,6 +19,8 @@ public class cineCamControl : MonoBehaviour
     private float ZoomMinBound = 0.1f;
 	private float ZoomMaxBound = 1000f;
 
+    public openFile stream;
+
     
     // Start is called before the first frame update
     void Start()
@@ -91,7 +93,8 @@ public class cineCamControl : MonoBehaviour
 
 
     public void findObject(){
-        target = GameObject.FindGameObjectWithTag("model3d");
+        //target = GameObject.FindGameObjectWithTag("model3d");
+        target = stream.loadedObject;
         camera.transform.position = new Vector3(target.transform.position.x + offset.x,
                                                 target.transform.position.y + offset.y,
                                                 target.transform.position.z + offset.z);

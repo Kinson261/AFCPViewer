@@ -16,10 +16,13 @@ public class saveParameters3 : MonoBehaviour
 
     string date;
     public getDateAndTime m_date;
+    public Canvas canvas;
 
 
 
     void Start(){
+        
+        canvas = GetComponent<Canvas>();
         // initialization
         inputFieldR.text = "1";
         inputFieldB.text = "1";
@@ -44,14 +47,14 @@ public class saveParameters3 : MonoBehaviour
     public void onClick(){
         date = m_date.date;
 
-        Directory.CreateDirectory(Application.streamingAssetsPath  + date + "/Parameters/");
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/" + date + "/Parameters/");
         
         createTxtFile();
     }
     
 
     public void createTxtFile(){
-        string docname = Application.streamingAssetsPath + date + "/Parameters/" +  "/parametersSpatialBlade.txt";
+        string docname = Application.streamingAssetsPath + "/" + date + "/Parameters/" +  "/parametersSpatialBlade.txt";
 
         if (!File.Exists(docname)){
             File.WriteAllText(docname, "Параметры пространственной лопасти\n");
@@ -59,6 +62,17 @@ public class saveParameters3 : MonoBehaviour
 
         File.AppendAllText(docname, "\nR = " + R);
         File.AppendAllText(docname, "\nB = " + B);
+    }
+
+
+    public void checkActiveCanvas(){
+        Canvas[] activeCanvas;
+        activeCanvas = FindObjectsOfType<Canvas>();
+        foreach (Canvas c in activeCanvas){
+            if (c.tag == "CanvasParameters" && c.enabled == true){
+                c.enabled = false;
+            }
+        }
     }
 
 }

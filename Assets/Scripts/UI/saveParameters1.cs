@@ -26,11 +26,16 @@ public class saveParameters1 : MonoBehaviour
     public float nr;
     public float ckp;
 
+
     string date;
     public getDateAndTime m_date;
+    public Canvas canvas;
+
 
 
     void Start(){
+
+        canvas = GetComponent<Canvas>();
         inputFieldQ.text = "1";
         inputFieldH.text = "1";
         inputFieldn.text = "1";
@@ -81,7 +86,7 @@ public class saveParameters1 : MonoBehaviour
 
         date = m_date.date;
 
-        Directory.CreateDirectory(Application.streamingAssetsPath  + date + "/Parameters/");
+        Directory.CreateDirectory(Application.streamingAssetsPath  + "/" + date + "/Parameters/");
 
         createTxtFile();
 
@@ -89,7 +94,7 @@ public class saveParameters1 : MonoBehaviour
     
 
     public void createTxtFile(){
-        string docname = Application.streamingAssetsPath + date +  "/Parameters/" + "/parametersWorkingWheel.txt";
+        string docname = Application.streamingAssetsPath + "/"+ date +  "/Parameters/" + "/parametersWorkingWheel.txt";
 
         if (!File.Exists(docname)){
             File.WriteAllText(docname, "Параметры рабочего колеса\n");
@@ -104,6 +109,17 @@ public class saveParameters1 : MonoBehaviour
         File.AppendAllText(docname, "\nnr = " + nr);
         File.AppendAllText(docname, "\nckp = " + ckp);
         File.AppendAllText(docname, "\n");
+    }
+
+
+    public void checkActiveCanvas(){
+        Canvas[] activeCanvas;
+        activeCanvas = FindObjectsOfType<Canvas>();
+        foreach (Canvas c in activeCanvas){
+            if (c.tag == "CanvasParameters" && c.enabled == true){
+                c.enabled = false;
+            }
+        }
     }
 
 }

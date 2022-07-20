@@ -11,23 +11,24 @@ public class openFile : MonoBehaviour
 {
     public GameObject loadedObject;
     private string _path;
-    string[] path;
+    string path;
     string error = string.Empty;
     public Texture2D texture;
     public cineCamControl cinecam;
 
     public void OpenExplorer(){
-        path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "obj", true);
-        WriteResult(path[0]);
+        //path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "obj", true);
+        //WriteResult(path[0]);
+        path = Application.streamingAssetsPath + "/Model3d/" + "rk_45_180_xbg_v5_v3.obj";
 
-        if (!File.Exists(path[0])){
-            error = "File " + path[0] + " does not exist";
+        if (!File.Exists(path)){
+            error = "File " + path+ " does not exist";
         }
         else{
             if (loadedObject != null){
                 Destroy(loadedObject);
             }
-            loadedObject = new OBJLoader().Load(path[0]);
+            loadedObject = new OBJLoader().Load(path);
             loadedObject.tag = "model3d";
             error = string.Empty;
 
@@ -49,16 +50,16 @@ public class openFile : MonoBehaviour
         Vector3 lastPos = cinecam.target.transform.position;
         Quaternion lastRot = cinecam.target.transform.rotation;
         
-        path[0] = Application.streamingAssetsPath + "/Model3d/" + "wheel_1.obj";
+        path = Application.streamingAssetsPath + "/Model3d/" + "wheel_1.obj";
 
-        if (!File.Exists(path[0])){
-            error = "File " + path[0] + " does not exist";
+        if (!File.Exists(path)){
+            error = "File " + path + " does not exist";
         }
         else{
             if (loadedObject != null){
                 Destroy(loadedObject);
             }
-            loadedObject = new OBJLoader().Load(path[0]);
+            loadedObject = new OBJLoader().Load(path);
             loadedObject.tag = "model3d";
             error = string.Empty;
 
@@ -82,16 +83,16 @@ public class openFile : MonoBehaviour
         Vector3 lastPos = cinecam.target.transform.position;
         Quaternion lastRot = cinecam.target.transform.rotation;
 
-        path[0] = Application.streamingAssetsPath + "/Model3d/" + "wheel_2.obj";
+        path = Application.streamingAssetsPath + "/Model3d/" + "wheel_2.obj";
 
-        if (!File.Exists(path[0])){
-            error = "File " + path[0] + " does not exist";
+        if (!File.Exists(path)){
+            error = "File " + path + " does not exist";
         }
         else{
             if (loadedObject != null){
                 Destroy(loadedObject);
             }
-            loadedObject = new OBJLoader().Load(path[0]);
+            loadedObject = new OBJLoader().Load(path);
             loadedObject.tag = "model3d";
             error = string.Empty;
 

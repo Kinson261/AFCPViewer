@@ -10,17 +10,11 @@ public class saveFile : MonoBehaviour
 {
     public GameObject model3d;
     public GameObject child;
+    
 
-    private string pathUrl = "Assets/SavedModels/";
+    public getDateAndTime m_date;
+    private string pathUrl = Application.streamingAssetsPath + "/SavedModels/";
     private MeshFilter mf;
-
-
-    //public void getModel3d()
-    //{
-    //    model3d = GameObject.FindGameObjectWithTag("model3d");
-    //    child = model3d.transform.GetChild(0).gameObject;
-    //    CreateFile();
-    //}
 
 
     public void getModel3d()

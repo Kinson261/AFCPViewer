@@ -14,6 +14,7 @@ public class openFile : MonoBehaviour
     string[] path;
     string error = string.Empty;
     public Texture2D texture;
+    public cineCamControl cinecam;
 
     public void OpenExplorer(){
         path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "obj", true);
@@ -44,7 +45,10 @@ public class openFile : MonoBehaviour
     }
 
     public void switchView(){
-        //path = Resources.Load("objSwitch") as string;
+
+        Vector3 lastPos = cinecam.target.transform.position;
+        Quaternion lastRot = cinecam.target.transform.rotation;
+        
         path[0] = Application.streamingAssetsPath + "/Model3d/" + "wheel_1.obj";
 
         if (!File.Exists(path[0])){
@@ -59,6 +63,8 @@ public class openFile : MonoBehaviour
             error = string.Empty;
 
             loadedObject = loadedObject.transform.GetChild(0).gameObject;
+            loadedObject.transform.position = lastPos;
+            loadedObject.transform.rotation = lastRot;
 
             //get shader object
             Shader shader = Shader.Find("Diffuse");
@@ -73,7 +79,9 @@ public class openFile : MonoBehaviour
     }
 
     public void switchView2(){
-        //path = Resources.Load("objSwitch") as string;
+        Vector3 lastPos = cinecam.target.transform.position;
+        Quaternion lastRot = cinecam.target.transform.rotation;
+
         path[0] = Application.streamingAssetsPath + "/Model3d/" + "wheel_2.obj";
 
         if (!File.Exists(path[0])){
@@ -88,6 +96,8 @@ public class openFile : MonoBehaviour
             error = string.Empty;
 
             loadedObject = loadedObject.transform.GetChild(0).gameObject;
+            loadedObject.transform.position = lastPos;
+            loadedObject.transform.rotation = lastRot;
 
             //get shader object
             Shader shader = Shader.Find("Diffuse");

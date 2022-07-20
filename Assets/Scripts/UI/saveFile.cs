@@ -8,21 +8,29 @@ using System.IO;
 
 public class saveFile : MonoBehaviour
 {
-    public GameObject model3d;
+    public GameObject[] model3d;
     public GameObject child;
     
 
     public getDateAndTime m_date;
-    private string pathUrl = Application.streamingAssetsPath + "/SavedModels/";
+    //private string pathUrl = Application.streamingAssetsPath + "/SavedModels/";
     private MeshFilter mf;
 
 
     public void getModel3d()
     {
-        model3d = GameObject.FindGameObjectWithTag("model3d");
-        child = model3d.transform.GetChild(0).gameObject;
-        mf= child.GetComponent<MeshFilter>();
-        CreateFile();
+        model3d = GameObject.FindGameObjectsWithTag("model3d");
+        foreach (GameObject model3d in model3d)
+        {
+            if(model3d.transform.childCount>0){
+                child = model3d.transform.GetChild(0).gameObject;
+                mf= child.GetComponent<MeshFilter>();
+                CreateFile();
+            }
+        }
+        //child = model3d.transform.GetChild(0).gameObject;
+        //mf= child.GetComponent<MeshFilter>();
+        //CreateFile();
     }
 
     private string MeshToString(MeshFilter mf, Vector3 scale)
@@ -113,8 +121,11 @@ public class saveFile : MonoBehaviour
 
     public void CreateFile()
     {
+        string date = m_date.date;
+        
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/" + date + "/");
         //using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", pathUrl, this.gameObject.name)))
-        using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", pathUrl, child.name )))
+        using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", Application.streamingAssetsPath + "/" + date + "/", child.name )))
 
         {
             streamWriter.Write(MeshToString(mf, new Vector3(-1f, 1f, 1f)));

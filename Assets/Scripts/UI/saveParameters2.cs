@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 using TMPro;
 
@@ -16,6 +17,9 @@ public class saveParameters2 : MonoBehaviour
     public float D2;
     public float B1;
     public float B2;
+
+    string date;
+    public getDateAndTime m_date;
 
 
 
@@ -48,8 +52,25 @@ public class saveParameters2 : MonoBehaviour
         float.TryParse(inputFieldB2.text, out B2);
     }
     
+    public void onClick(){
+        date = m_date.date;
 
-    void getValue(){
+        Directory.CreateDirectory(Application.streamingAssetsPath  + date + "/Parameters/");
+        createTxtFile();
+    }
+
+    public void createTxtFile(){
+        string docname = Application.streamingAssetsPath +  date + "/Parameters/" +"/parametersCylindricalBlade.txt";
+
+        if (!File.Exists(docname)){
+            File.WriteAllText(docname, "Параметры цилиндрической лопасти\n");
+        }
+
+        File.AppendAllText(docname, "\nD1 = " + D1);
+        File.AppendAllText(docname, "\nD2 = " + D2);
+        File.AppendAllText(docname, "\nB1 = " + B1);
+        File.AppendAllText(docname, "\nB2 = " + B2);
+        File.AppendAllText(docname, "\n");
 
     }
 }

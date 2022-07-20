@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 using TMPro;
 
@@ -25,10 +26,11 @@ public class saveParameters1 : MonoBehaviour
     public float nr;
     public float ckp;
 
+    string date;
+    public getDateAndTime m_date;
 
 
     void Start(){
-        // initialization
         inputFieldQ.text = "1";
         inputFieldH.text = "1";
         inputFieldn.text = "1";
@@ -38,7 +40,6 @@ public class saveParameters1 : MonoBehaviour
         inputFieldnr.text = "1";
         inputFieldckp.text = "1";
 
-        //converting string to floating
         float.TryParse(inputFieldQ.text, out Q);
         float.TryParse(inputFieldH.text, out H);
         float.TryParse(inputFieldn.text, out n);
@@ -58,6 +59,7 @@ public class saveParameters1 : MonoBehaviour
         inputFieldnr.onEndEdit.AddListener(delegate { ValueChangeCheck(); });
         inputFieldckp.onEndEdit.AddListener(delegate { ValueChangeCheck(); });
 
+
     }
 
     public void ValueChangeCheck(){
@@ -71,9 +73,38 @@ public class saveParameters1 : MonoBehaviour
         float.TryParse(inputFieldnr.text, out nr);
         float.TryParse(inputFieldckp.text, out ckp);
     }
-    
 
-    void getValue(){
+
+
+
+    public void onClick(){
+
+        date = m_date.date;
+
+        Directory.CreateDirectory(Application.streamingAssetsPath  + date + "/Parameters/");
+
+        createTxtFile();
 
     }
+    
+
+    public void createTxtFile(){
+        string docname = Application.streamingAssetsPath + date +  "/Parameters/" + "/parametersWorkingWheel.txt";
+
+        if (!File.Exists(docname)){
+            File.WriteAllText(docname, "Параметры рабочего колеса\n");
+        }
+
+        File.AppendAllText(docname, "\nQ = " + Q);
+        File.AppendAllText(docname, "\nH = " + H);
+        File.AppendAllText(docname, "\nn = " + n);
+        File.AppendAllText(docname, "\nnz = " + nz);
+        File.AppendAllText(docname, "\nnz_ = " + nz_);
+        File.AppendAllText(docname, "\nHm = " + Hm);
+        File.AppendAllText(docname, "\nnr = " + nr);
+        File.AppendAllText(docname, "\nckp = " + ckp);
+        File.AppendAllText(docname, "\n");
+    }
+
 }
+

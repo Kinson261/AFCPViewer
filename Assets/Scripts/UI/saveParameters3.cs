@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 using TMPro;
 
@@ -12,6 +13,9 @@ public class saveParameters3 : MonoBehaviour
 
     public float R;
     public float B;
+
+    string date;
+    public getDateAndTime m_date;
 
 
 
@@ -37,7 +41,24 @@ public class saveParameters3 : MonoBehaviour
     }
     
 
-    void getValue(){
+    public void onClick(){
+        date = m_date.date;
 
+        Directory.CreateDirectory(Application.streamingAssetsPath  + date + "/Parameters/");
+        
+        createTxtFile();
     }
+    
+
+    public void createTxtFile(){
+        string docname = Application.streamingAssetsPath + date + "/Parameters/" +  "/parametersSpatialBlade.txt";
+
+        if (!File.Exists(docname)){
+            File.WriteAllText(docname, "Параметры пространственной лопасти\n");
+        }
+
+        File.AppendAllText(docname, "\nR = " + R);
+        File.AppendAllText(docname, "\nB = " + B);
+    }
+
 }

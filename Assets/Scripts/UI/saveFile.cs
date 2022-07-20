@@ -139,13 +139,31 @@ public class saveFile : MonoBehaviour
     }
     
 
-    public void Save(){
+    public static IEnumerator Frames(int frameCount)
+    {
+        while (frameCount > 0)
+        {
+            frameCount--;
+            yield return null;
+        }
+    }
 
+
+    public IEnumerator CoroutineAction(){
         canvas.enabled = true;
-        
+
+        yield return StartCoroutine(Frames(60));
+
         getModel3d();
-        
+
+        yield return StartCoroutine(Frames(60));
+
         canvas.enabled = false;
+
+    }
+
+    public void Save(){
+        StartCoroutine(CoroutineAction());
     }
     
 }

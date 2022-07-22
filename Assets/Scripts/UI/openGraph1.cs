@@ -9,7 +9,9 @@ using System.IO;
 
 public class openGraph1 : MonoBehaviour
 {
-     public RawImage output;
+    public RawImage output1;
+    public RawImage output2;
+    public Canvas canvas;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
     //
@@ -37,22 +39,44 @@ public class openGraph1 : MonoBehaviour
         button.onClick.AddListener(OnClick);
     }
 
-    public void OnClick() {
-        //var paths = StandaloneFileBrowser.OpenFilePanel("Title", "", "png", false);
-        //if (paths.Length > 0) {
-        //    StartCoroutine(OutputRoutine(new System.Uri(paths[0]).AbsoluteUri));
-        //}
-        
-        var path1 = Path.Combine(Application.streamingAssetsPath, "g1.png");
-        StartCoroutine(OutputRoutine(new System.Uri(path1).AbsoluteUri));
-
-
+    public void OnClick() {        
+        //var path1 = Path.Combine(Application.streamingAssetsPath, "g1.png");
+        //StartCoroutine(OutputRoutine(new System.Uri(path1).AbsoluteUri));
+        StartCoroutine(CoroutineAction());
     }
 #endif
 
-    private IEnumerator OutputRoutine(string url) {
+    public IEnumerator OutputRoutine(string url, RawImage output) {
         var loader = new WWW(url);
         yield return loader;
         output.texture = loader.texture;
     }
+
+    public static IEnumerator Frames(int frameCount)
+    {
+        while (frameCount > 0)
+        {
+            frameCount--;
+            yield return null;
+        }
+    }
+
+
+    public IEnumerator CoroutineAction(){
+        canvas.enabled = true;
+
+        yield return StartCoroutine(Frames(60));
+
+        var path1 = Path.Combine(Application.streamingAssetsPath, "g1.png");
+        StartCoroutine(OutputRoutine(new System.Uri(path1).AbsoluteUri, output1));
+
+        var path2 = Path.Combine(Application.streamingAssetsPath, "g2.png");
+        StartCoroutine(OutputRoutine(new System.Uri(path2).AbsoluteUri, output2));
+
+        yield return StartCoroutine(Frames(60));
+
+        canvas.enabled = false;
+
+    }
+
 }

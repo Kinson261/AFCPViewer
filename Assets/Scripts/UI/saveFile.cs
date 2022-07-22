@@ -127,9 +127,9 @@ public class saveFile : MonoBehaviour
     {
         string date = m_date.date;
         
-        Directory.CreateDirectory(Application.streamingAssetsPath + "/" + date + "/");
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/../../SavedModels/" + date + "/");
         //using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", pathUrl, this.gameObject.name)))
-        using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", Application.streamingAssetsPath + "/" + date + "/", child.name )))
+        using (StreamWriter streamWriter = new StreamWriter(string.Format("{0}{1}.obj", Application.streamingAssetsPath + "/../../SavedModels/" + date + "/", child.name )))
 
         {
             streamWriter.Write(MeshToString(mf, new Vector3(-1f, 1f, 1f)));

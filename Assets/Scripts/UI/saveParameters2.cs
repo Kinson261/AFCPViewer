@@ -58,12 +58,12 @@ public class saveParameters2 : MonoBehaviour
     public void onClick(){
         date = m_date.date;
 
-        Directory.CreateDirectory(Application.streamingAssetsPath + "/" + date + "/Parameters/");
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/../../SavedModels/" + date + "/Parameters/");
         createTxtFile();
     }
 
     public void createTxtFile(){
-        string docname = Application.streamingAssetsPath + "/" +  date + "/Parameters/" +"/parametersCylindricalBlade.txt";
+        string docname = Application.streamingAssetsPath + "/../../SavedModels/" +  date + "/Parameters/" +"/parametersCylindricalBlade.txt";
 
         if (!File.Exists(docname)){
             File.WriteAllText(docname, "Параметры цилиндрической лопасти\n");

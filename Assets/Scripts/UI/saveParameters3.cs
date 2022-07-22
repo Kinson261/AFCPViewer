@@ -47,14 +47,14 @@ public class saveParameters3 : MonoBehaviour
     public void onClick(){
         date = m_date.date;
 
-        Directory.CreateDirectory(Application.streamingAssetsPath + "/" + date + "/Parameters/");
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/../../SavedModels/" + date + "/Parameters/");
         
         createTxtFile();
     }
     
 
     public void createTxtFile(){
-        string docname = Application.streamingAssetsPath + "/" + date + "/Parameters/" +  "/parametersSpatialBlade.txt";
+        string docname = Application.streamingAssetsPath + "/../../SavedModels/" + date + "/Parameters/" +  "/parametersSpatialBlade.txt";
 
         if (!File.Exists(docname)){
             File.WriteAllText(docname, "Параметры пространственной лопасти\n");

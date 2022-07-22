@@ -17,10 +17,10 @@ public class saveGraph2 : MonoBehaviour
     {
         graph = GetComponent<RawImage>();
         date = m_date.date;
-        Directory.CreateDirectory(Application.streamingAssetsPath  + "/" + date + "/Graphs/");
+        Directory.CreateDirectory(Application.streamingAssetsPath  + "/../../SavedModels/" + date + "/Graphs/");
 
         //path = StandaloneFileBrowser.SaveFilePanel("Save File", "", "graph", "png");
-        path = Application.streamingAssetsPath  + "/" + date + "/Graphs/g2.png";
+        path = Application.streamingAssetsPath  + "/../../SavedModels/" + date + "/Graphs/g2.png";
         if (path != null)
         {
             Texture2D frameTexture = (Texture2D)graph.mainTexture;

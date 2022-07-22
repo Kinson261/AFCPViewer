@@ -86,7 +86,7 @@ public class saveParameters1 : MonoBehaviour
 
         date = m_date.date;
 
-        Directory.CreateDirectory(Application.streamingAssetsPath  + "/" + date + "/Parameters/");
+        Directory.CreateDirectory(Application.streamingAssetsPath  + "/../../SavedModels/" + date + "/Parameters/");
 
         createTxtFile();
 
@@ -94,7 +94,7 @@ public class saveParameters1 : MonoBehaviour
     
 
     public void createTxtFile(){
-        string docname = Application.streamingAssetsPath + "/"+ date +  "/Parameters/" + "/parametersWorkingWheel.txt";
+        string docname = Application.streamingAssetsPath + "/../../SavedModels/"+ date +  "/Parameters/" + "/parametersWorkingWheel.txt";
 
         if (!File.Exists(docname)){
             File.WriteAllText(docname, "Параметры рабочего колеса\n");
